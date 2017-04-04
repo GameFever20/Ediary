@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "935673079970",
+    "firebase_url": "https://ediary-7d020.firebaseio.com",
+    "project_id": "ediary-7d020",
+    "storage_bucket": "ediary-7d020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935673079970:android:d18a2f933c355c5d",
+        "android_client_info": {
+          "package_name": "com.example.aisha.ediary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935673079970-a1v3gtliviu5t5da7ciq6i3cedgitg9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5J4epDeLvdfPrDDOV1E214YO9tUrhOR0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935673079970:android:541ad9b39d120922",
+        "android_client_info": {
+          "package_name": "crafty.schooldiary.diary.e.student.craftystudio.ediary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935673079970-a1v3gtliviu5t5da7ciq6i3cedgitg9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5J4epDeLvdfPrDDOV1E214YO9tUrhOR0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
