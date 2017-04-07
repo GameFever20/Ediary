@@ -16,4 +16,5 @@
     <string name="title_activity_daily_diary">DailyDiaryActivity</string>
     <string name="title_activity_diary">DiaryActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_time_table">TimeTableActivity</string>
 </resources>

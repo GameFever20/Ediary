@@ -101,6 +101,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onTimeTableClick(View view) {
+        Intent i = new Intent(this ,TimeTableActivity.class);
+        startActivity(i);
     }
 
     public void onNoticeBoardClick(View view) {

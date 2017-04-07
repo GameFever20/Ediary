@@ -29,6 +29,10 @@
         <activity
             android:name=".DiaryActivity"
             android:label="@string/title_activity_diary"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TimeTableActivity"
+            android:label="@string/title_activity_time_table"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

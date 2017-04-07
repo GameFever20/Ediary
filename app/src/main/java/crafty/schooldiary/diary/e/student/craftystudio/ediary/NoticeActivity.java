@@ -16,6 +16,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.eminayar.panter.DialogType;
+import com.eminayar.panter.PanterDialog;
+
 import java.util.ArrayList;
 
 import utils.DatabaseHandler;
@@ -105,6 +108,12 @@ public class NoticeActivity extends AppCompatActivity {
 
         builder.show();
     }
+
+    public void openInputDialogue2(){
+
+        
+    }
+
 
     private void postNoticeToFireBase(String s) {
         NoticeDetail noticeDetail = new NoticeDetail();
