@@ -13,4 +13,5 @@
     <string name="result">Result</string>
     <string name="title_activity_notice">NoticeActivity</string>
     <string name="hint_notice_message">Enter Notice</string>
+    <string name="title_activity_daily_diary">DailyDiaryActivity</string>
 </resources>

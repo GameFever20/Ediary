@@ -81,10 +81,60 @@ public class DatabaseHandler {
 
     }
 
+    public void getDailyComplainList(int limit){
+
+        DatabaseReference myRef = mDatabase.child("Student/Complain");
+
+        Query myref2= myRef.limitToLast(limit);
+
+        myref2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                ArrayList<NoticeDetail> noticeDetailArrayList =new ArrayList<NoticeDetail>();
+
+                for (DataSnapshot snapshot :dataSnapshot.getChildren()){
+                    NoticeDetail noticeDetail = snapshot.getValue(NoticeDetail.class);
+
+                    noticeDetailArrayList.add(noticeDetail);
+                }
+
+                dataBaseHandlerNoticeListner.onNoticeList(noticeDetailArrayList);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+
+            }
+        });
+
+
+    }
+
+    public void postDailyComplain(NoticeDetail noticeDetail) {
+        DatabaseReference myRef = mDatabase.child("Student/Complain");
+
+        myRef.push().setValue(noticeDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                dataBaseHandlerNoticeListner.onNoticePost(task.isSuccessful());
+            }
+        });
+
+
+    }
+
+
     public interface DataBaseHandlerNoticeListner {
         public void onNoticeList(ArrayList<NoticeDetail> noticeDetailArrayList);
         public void onNoticePost(boolean isSuccessful);
     }
+
+
 
 
 }

@@ -21,9 +21,11 @@
         <activity
             android:name=".NoticeActivity"
             android:label="@string/title_activity_notice"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".DailyDiaryActivity"
+            android:label="@string/title_activity_daily_diary"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
