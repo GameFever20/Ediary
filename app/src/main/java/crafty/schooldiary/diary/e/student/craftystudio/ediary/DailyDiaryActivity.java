@@ -37,9 +37,7 @@ public class DailyDiaryActivity extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View view) {openInputDialogue();
             }
         });
 
@@ -47,7 +45,7 @@ public class DailyDiaryActivity extends AppCompatActivity {
 
         noticeListAdapter = new ArrayAdapter<String>(DailyDiaryActivity.this,android.R.layout.simple_list_item_1 ,noticeStringList  );
 
-        noticeListView = (ListView)findViewById(R.id.noticeListView);
+        noticeListView = (ListView)findViewById(R.id.dailydiaryListView);
         noticeListView.setAdapter(noticeListAdapter);
 
         DatabaseHandler databasehandler =new DatabaseHandler();

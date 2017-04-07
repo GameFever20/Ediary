@@ -11,7 +11,7 @@
     <color name="calenderCardColor">#3F51B5</color>
     <color name="leaveCardColor">#3F51B5</color>
     <color name="resultCardColor">#3F51B5</color>
-    <color name="cardBackgroundColor">#7d000000</color>
+    <color name="cardBackgroundColor">#a0faf9f9</color>
 
 
 </resources>

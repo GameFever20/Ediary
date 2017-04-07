@@ -109,9 +109,15 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onDailyDiaryClick(View view) {
+        Intent i = new Intent(this ,DailyDiaryActivity.class);
+        startActivity(i);
+
     }
 
     public void onCalenderClick(View view) {
+        Intent i = new Intent(this ,DiaryActivity.class);
+        startActivity(i);
+
     }
 
     public void onLeaveClick(View view) {

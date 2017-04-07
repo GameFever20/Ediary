@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
 
 
     <ImageView
@@ -36,6 +36,7 @@
             android:layout_weight="1"
             android:onClick="onTimeTableClick"
             app:cardBackgroundColor="@color/timetableCardColor"
+            app:cardCornerRadius="0dp"
             android:layout_height="wrap_content">
 
             <TextView
@@ -52,6 +53,8 @@
             android:layout_weight="1"
             android:onClick="onNoticeBoardClick"
             app:cardBackgroundColor="@color/timetableCardColor"
+            app:cardCornerRadius="0dp"
+
             android:layout_height="wrap_content">
 
             <TextView
@@ -72,6 +75,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+
         android:orientation="horizontal">
 
 
@@ -80,6 +85,8 @@
             android:layout_weight="1"
             android:onClick="onDailyDiaryClick"
             app:cardBackgroundColor="@color/timetableCardColor"
+            app:cardCornerRadius="0dp"
+
             android:layout_height="wrap_content">
 
             <TextView
@@ -95,6 +102,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:onClick="onCalenderClick"
+            app:cardCornerRadius="0dp"
+
             app:cardBackgroundColor="@color/timetableCardColor"
             android:layout_height="wrap_content">
 
@@ -116,15 +125,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+
         android:orientation="horizontal">
 
 
         <android.support.v7.widget.CardView
             android:layout_width="0dp"
             android:layout_weight="1"
+            app:cardCornerRadius="0dp"
+
             android:onClick="onLeaveClick"
             app:cardBackgroundColor="@color/timetableCardColor"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="match_parent"
@@ -139,6 +152,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:onClick="onResultClick"
+            app:cardCornerRadius="0dp"
+
             app:cardBackgroundColor="@color/timetableCardColor"
             android:layout_height="wrap_content">
 

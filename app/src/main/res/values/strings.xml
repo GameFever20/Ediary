@@ -14,4 +14,6 @@
     <string name="title_activity_notice">NoticeActivity</string>
     <string name="hint_notice_message">Enter Notice</string>
     <string name="title_activity_daily_diary">DailyDiaryActivity</string>
+    <string name="title_activity_diary">DiaryActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

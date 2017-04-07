@@ -128,6 +128,101 @@ public class DatabaseHandler {
 
     }
 
+    public void getDailyHomeworkList(int limit){
+
+        DatabaseReference myRef = mDatabase.child("Classes/KG1/Homework");
+
+        Query myref2= myRef.limitToLast(limit);
+
+        myref2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                ArrayList<NoticeDetail> noticeDetailArrayList =new ArrayList<NoticeDetail>();
+
+                for (DataSnapshot snapshot :dataSnapshot.getChildren()){
+                    NoticeDetail noticeDetail = snapshot.getValue(NoticeDetail.class);
+
+                    noticeDetailArrayList.add(noticeDetail);
+                }
+
+                dataBaseHandlerNoticeListner.onNoticeList(noticeDetailArrayList);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+
+            }
+        });
+
+
+    }
+
+    public void postDailyHomework(NoticeDetail noticeDetail) {
+        DatabaseReference myRef = mDatabase.child("Classes/KG1/Homework");
+
+        myRef.push().setValue(noticeDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                dataBaseHandlerNoticeListner.onNoticePost(task.isSuccessful());
+            }
+        });
+
+
+    }
+
+    public void getDailyprojectList(int limit){
+
+        DatabaseReference myRef = mDatabase.child("Classes/KG1/Project");
+
+        Query myref2= myRef.limitToLast(limit);
+
+        myref2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                ArrayList<NoticeDetail> noticeDetailArrayList =new ArrayList<NoticeDetail>();
+
+                for (DataSnapshot snapshot :dataSnapshot.getChildren()){
+                    NoticeDetail noticeDetail = snapshot.getValue(NoticeDetail.class);
+
+                    noticeDetailArrayList.add(noticeDetail);
+                }
+
+                dataBaseHandlerNoticeListner.onNoticeList(noticeDetailArrayList);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+
+            }
+        });
+
+
+    }
+
+    public void postDailyProject(NoticeDetail noticeDetail) {
+        DatabaseReference myRef = mDatabase.child("Classes/KG1/Project");
+
+        myRef.push().setValue(noticeDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                dataBaseHandlerNoticeListner.onNoticePost(task.isSuccessful());
+            }
+        });
+
+
+    }
+
+
 
     public interface DataBaseHandlerNoticeListner {
         public void onNoticeList(ArrayList<NoticeDetail> noticeDetailArrayList);
