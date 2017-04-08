@@ -6,7 +6,7 @@
     <color name="white">#ffffff</color>
 
     <color name="timetableCardColor">#3F51B5</color>
-    <color name="noticeBoardCardColor">#3F51B5</color>
+    <color name="noticeBoardCardColor">#ff2b9d</color>
     <color name="dailyDiaryCardColor">#3F51B5</color>
     <color name="calenderCardColor">#3F51B5</color>
     <color name="leaveCardColor">#3F51B5</color>

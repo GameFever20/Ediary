@@ -28,6 +28,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import utils.DatabaseHandler;
+import utils.NoticeAdapter;
 import utils.NoticeDetail;
 
 public class DiaryActivity extends AppCompatActivity {
@@ -179,8 +180,9 @@ public class DiaryActivity extends AppCompatActivity {
          */
 
         ListView noticeListView;
-        ArrayAdapter<String> noticeListAdapter;
-        public ArrayList<String> noticeStringList =new ArrayList<>() ;
+        NoticeAdapter noticeListAdapter;
+        public ArrayList<NoticeDetail> noticeStringList =new ArrayList<>() ;
+        public TextView headingTextView;
 
 
         private static final String ARG_SECTION_NUMBER = "section_number";
@@ -205,15 +207,19 @@ public class DiaryActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_diary, container, false);
 
-            noticeListAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1 ,noticeStringList  );
+            noticeListAdapter = new NoticeAdapter(getContext() , noticeStringList) ;
 
             noticeListView = (ListView)rootView.findViewById(R.id.diaryListView);
             noticeListView.setAdapter(noticeListAdapter);
+            headingTextView =(TextView)rootView.findViewById(R.id.fragment_diary_heading_textview);
+
 
 
             int num = getArguments().getInt(ARG_SECTION_NUMBER);
             switch (num){
                 case 1:
+
+                    headingTextView.setText("Complain");
 
                     if (noticeStringList.size() ==0) {
                         DatabaseHandler databasehandler =new DatabaseHandler();
@@ -225,7 +231,7 @@ public class DiaryActivity extends AppCompatActivity {
 
                                 for (int i = noticeDetailArrayList.size()-1 ;i>=0 ; i-- )
                                 {
-                                    noticeStringList.add(noticeDetailArrayList.get(i).getNoticeMessage());
+                                    noticeStringList.add(noticeDetailArrayList.get(i));
                                 }
 
 
@@ -243,6 +249,8 @@ public class DiaryActivity extends AppCompatActivity {
 
                     break;
                 case 2:
+                    headingTextView.setText("Homework");
+
 
                     if (noticeStringList.size() ==0) {
                         DatabaseHandler databasehandler =new DatabaseHandler();
@@ -254,7 +262,7 @@ public class DiaryActivity extends AppCompatActivity {
 
                                 for (int i = noticeDetailArrayList.size()-1 ;i>=0 ; i-- )
                                 {
-                                    noticeStringList.add(noticeDetailArrayList.get(i).getNoticeMessage());
+                                    noticeStringList.add(noticeDetailArrayList.get(i));
                                 }
 
 
@@ -272,6 +280,9 @@ public class DiaryActivity extends AppCompatActivity {
 
                     break;
                 case 3:
+                    headingTextView.setText("Project");
+
+
                     if (noticeStringList.size() ==0) {
                         DatabaseHandler databasehandler =new DatabaseHandler();
                         databasehandler.getDailyprojectList(10);
@@ -282,7 +293,7 @@ public class DiaryActivity extends AppCompatActivity {
 
                                 for (int i = noticeDetailArrayList.size()-1 ;i>=0 ; i-- )
                                 {
-                                    noticeStringList.add(noticeDetailArrayList.get(i).getNoticeMessage());
+                                    noticeStringList.add(noticeDetailArrayList.get(i));
                                 }
 
 

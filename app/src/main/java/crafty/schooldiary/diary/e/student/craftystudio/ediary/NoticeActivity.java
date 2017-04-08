@@ -22,6 +22,7 @@ import com.eminayar.panter.PanterDialog;
 import java.util.ArrayList;
 
 import utils.DatabaseHandler;
+import utils.NoticeAdapter;
 import utils.NoticeDetail;
 
 import static java.security.AccessController.getContext;
@@ -30,7 +31,9 @@ public class NoticeActivity extends AppCompatActivity {
 
     ListView noticeListView;
     ArrayAdapter<String> noticeListAdapter;
-    public ArrayList<String> noticeStringList =new ArrayList<>() ;
+    NoticeAdapter noticeAdapter;
+    ArrayList<NoticeDetail> noticeDetailArrayList = new ArrayList<>();
+    public ArrayList<String> noticeStringList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,30 +46,32 @@ public class NoticeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               openInputDialogue();
+                openInputDialogue();
             }
         });
 
-        noticeListAdapter = new ArrayAdapter<String>(NoticeActivity.this,android.R.layout.simple_list_item_1 ,noticeStringList  );
+        noticeListAdapter = new ArrayAdapter<String>(NoticeActivity.this, android.R.layout.simple_list_item_1, noticeStringList);
 
-        noticeListView = (ListView)findViewById(R.id.noticeListView);
-        noticeListView.setAdapter(noticeListAdapter);
+        noticeAdapter = new NoticeAdapter(this, noticeDetailArrayList);
+
+        noticeListView = (ListView) findViewById(R.id.noticeListView);
+        noticeListView.setAdapter(noticeAdapter);
 
 
-        DatabaseHandler databasehandler =new DatabaseHandler();
+        DatabaseHandler databasehandler = new DatabaseHandler();
         databasehandler.getNoticeList(10);
         databasehandler.addNoticeListListner(new DatabaseHandler.DataBaseHandlerNoticeListner() {
             @Override
             public void onNoticeList(ArrayList<NoticeDetail> noticeDetailArrayList) {
-                Toast.makeText(NoticeActivity.this, ""+noticeDetailArrayList.size(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(NoticeActivity.this, "" + noticeDetailArrayList.size(), Toast.LENGTH_SHORT).show();
 
-                for (int i = noticeDetailArrayList.size()-1 ;i>=0 ; i-- )
-                {
-                    noticeStringList.add(noticeDetailArrayList.get(i).getNoticeMessage());
+                for (int i = noticeDetailArrayList.size() - 1; i >= 0; i--) {
+                    //noticeStringList.add(noticeDetailArrayList.get(i).getNoticeMessage());
+                    NoticeActivity.this.noticeDetailArrayList.add(noticeDetailArrayList.get(i));
                 }
 
 
-                noticeListAdapter.notifyDataSetChanged();
+                noticeAdapter.notifyDataSetChanged();
 
             }
 
@@ -109,9 +114,9 @@ public class NoticeActivity extends AppCompatActivity {
         builder.show();
     }
 
-    public void openInputDialogue2(){
+    public void openInputDialogue2() {
 
-        
+
     }
 
 
@@ -130,7 +135,7 @@ public class NoticeActivity extends AppCompatActivity {
             @Override
             public void onNoticePost(boolean isSuccessful) {
 
-                Toast.makeText(NoticeActivity.this, "Notice posted "+isSuccessful, Toast.LENGTH_SHORT).show();
+                Toast.makeText(NoticeActivity.this, "Notice posted " + isSuccessful, Toast.LENGTH_SHORT).show();
 
             }
         });
